@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Love ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        #btn {
+            padding: 20px 40px;
+            font-size: 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: white;
+            color: #ff4d6d;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        #message {
+            display: none;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin: 0;
+            animation: pulse 1s infinite;
+        }
+
+        p {
+            font-size: 1.8rem;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 30px;
+            animation: float 4s linear forwards;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-800px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<button id="btn" onclick="surprise()">DON'T CLICK THIS ❤️</button>
+
+<div id="message">
+    <h1>💥 BOOM! 💥</h1>
+    <h1>I LOVE YOU ❤️</h1>
+    <p>Cutu i love you sooo muchh bht pyaare ho aap and i loveee u soooo muchhhh bhttt zaddaaa ptta hai na aapko babyyyy <3 </p>
+</div>
+
+<script>
+function surprise() {
+    document.getElementById("btn").style.display = "none";
+    document.getElementById("message").style.display = "block";
+
+    for(let i = 0; i < 100; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.className = "heart";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = window.innerHeight + "px";
+        heart.style.fontSize = (20 + Math.random() * 40) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+}
+</script>
+
+</body>
+</html>
